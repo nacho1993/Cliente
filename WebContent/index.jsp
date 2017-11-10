@@ -22,6 +22,7 @@
 				request.getRequestDispatcher("/menu.jsp");
 			}
 		%>
+	
 		<div class="col-md-4 col-md-offset-4 formulario">
 			<%
 				if (request.getAttribute("error") != null) {
