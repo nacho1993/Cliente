@@ -46,9 +46,9 @@
 						placeholder="Password">
 				</div>
 				<br>
-				<div>
-					<button type="submit" class="btn ">Ingresar</button>
-					<button type="reset" class="btn ">Blanquear</button>
+				<div class="row">
+					<button type="submit" class="btn col-md-3 col-md-offset-2">Ingresar</button>
+					<button type="reset" class="btn col-md-3 col-md-offset-2">Blanquear</button>
 				</div>
 			</form>
 			</br>
