@@ -24,7 +24,7 @@ public class Navbar {
 												"</ul>"+
 											"</li>" +
 											"<li><a href=\"#\">PACIENTE</a></li> " +
-											"<li><a href=\"#\">CONSULTORIO</a></li> " +
+											"<li><a href=\"ABMgenera?tabla=consultorio\">CONSULTORIO</a></li> " +
 										"</ul>" +
 									"</li>" +
 									"<li><a href=\"Consulta\">ALQUILER</a></li>" +

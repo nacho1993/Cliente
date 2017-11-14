@@ -42,7 +42,6 @@ public class DBConnect {
 		try {
 			java.sql.Statement sentencia = getconnection().createStatement(ResultSet.TYPE_FORWARD_ONLY, ResultSet.CONCUR_READ_ONLY);
 			resultado = sentencia.executeQuery(SQL);
-//			getconnection().commit();
 		} catch (Exception e) {
 			e.printStackTrace();
 			return null;
