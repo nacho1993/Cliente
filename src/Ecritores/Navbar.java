@@ -23,7 +23,7 @@ public class Navbar {
 													"<li><a href=\"#\">Page 1-1-1</a></li> " +
 												"</ul>"+
 											"</li>" +
-											"<li><a href=\"#\">PACIENTE</a></li> " +
+											"<li><a href=\"ABMgenera?tabla=paciente\">PACIENTE</a></li> " +
 											"<li><a href=\"ABMgenera?tabla=consultorio\">CONSULTORIO</a></li> " +
 										"</ul>" +
 									"</li>" +

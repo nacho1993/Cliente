@@ -22,7 +22,6 @@ public class DBConnect {
 			e.printStackTrace();
 			return null;
 		}
-
 	}
 
 	public boolean ejecutar(String SQL ) {

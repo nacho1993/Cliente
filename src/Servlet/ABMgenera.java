@@ -36,6 +36,7 @@ public class ABMgenera extends HttpServlet {
 			
 			String con = "SELECT * FROM campos where tabla=\"" + tabnom + "\"" ;
 			ResultSet resultado = bd.consulta(con);
+			
 			ArrayList<Tabla> tabarr = new ArrayList<Tabla>();
 			try {
 				while (resultado.next()) {
@@ -50,6 +51,7 @@ public class ABMgenera extends HttpServlet {
 				
 			
 			request.setAttribute("tabarr", tabarr);
+			request.setAttribute("ntabla", tabnom);
 			request.getRequestDispatcher("/WEB-INF/ABMGenerico.jsp").forward(request, response);
 			
 			

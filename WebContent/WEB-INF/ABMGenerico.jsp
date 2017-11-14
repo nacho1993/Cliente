@@ -10,7 +10,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>ABM Doctor</title>
+<title>Gestionar</title>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src="js/bootstrap.min.js"></script>
@@ -22,11 +22,13 @@
 <div class="container">
 <%= Navbar.impnbar(request)%>
 
-<form class="form-horizontal" action="MDoctor" method="post">
+<form class="form-horizontal" action="AMBgenerico" method="post">
   <input type="hidden" name="modo" value="alta">
   
-  <%    ArrayList<Tabla> tabarr = (ArrayList<Tabla>) request.getAttribute("tabarr");
-		for(Tabla tabla : tabarr){
+  <%  	ArrayList<Tabla> tabarr = (ArrayList<Tabla>) request.getAttribute("tabarr");%>
+  	
+    	<input type="hidden" name="oculto" value="<%= request.getAttribute("ntabla") %>">
+	<%		for(Tabla tabla : tabarr){
 			String nomcam = tabla.getNomcam();
 			String tipo = tabla.getTipo();
 			
