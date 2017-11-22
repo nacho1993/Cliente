@@ -11,7 +11,6 @@ public class SelecObj {
 	public static String impsel(String nomcap) {
 		DBConnect db = new DBConnect();
 		ResultSet resultado = db.consulta("select * from "+ nomcap);
-		System.out.print(resultado);
 		if(resultado == null)
 			return "\n";
 				String slc;

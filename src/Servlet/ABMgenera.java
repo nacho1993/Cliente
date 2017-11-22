@@ -29,7 +29,7 @@ public class ABMgenera extends HttpServlet {
 	
    
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		 
+//		 trae todos los campos de la tabla capos para el objeto elejido y los guarda en un array 
 		String tabnom = request.getParameter("tabla"); 
 			DBConnect bd = new DBConnect();
 			
@@ -43,8 +43,9 @@ public class ABMgenera extends HttpServlet {
 					  String nombre = resultado.getString("tabla");
 					  String nomcap = resultado.getString("nomcam");
 					  String tipo = resultado.getString("tipo");
+					  Boolean primary =  resultado.getBoolean("primary");
 					  
-					 tabobj = new Tabla(nombre, nomcap, tipo);
+					 tabobj = new Tabla(nombre, nomcap, tipo, primary);
 					 tabarr.add(tabobj);
 				}
 				

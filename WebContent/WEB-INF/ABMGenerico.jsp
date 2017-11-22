@@ -19,80 +19,98 @@
 
 </head>
 <body>
-<div class="container">
-<%= Navbar.impnbar(request)%>
+	<div class="container">
+		<%= Navbar.impnbar(request)%>
 
-<form class="form-horizontal" action="AMBgenerico" method="post">
-
-<%if (request.getAttribute("respuesta") != null) { %>
-	
-	</br> <%= request.getAttribute("respuesta")%>
-<%}%>     
+		<form class="form-horizontal" action="AMBgenerico" method="post">
+		
+			<!--la respuesta, cuando vuelve de ABMgenerioc  -->
+			<%if (request.getAttribute("respuesta") != null) { %>
+				</br> <%= request.getAttribute("respuesta")%>
+			<%}%>     
             
-  <input type="hidden" name="modo" value="alta">
-  
-  <%  	ArrayList<Tabla> tabarr = (ArrayList<Tabla>) request.getSession().getAttribute("tabarr");%>
+  			
+  			<input type="hidden" name="modo" value="alta"> 
+  			
+			<!-- trae el array de los campos -->
+ 			<%ArrayList<Tabla> tabarr = (ArrayList<Tabla>) request.getSession().getAttribute("tabarr");%>
   	
-    	<input type="hidden" name="oculto" value="<%= request.getAttribute("ntabla") %>">
-	<%		for(Tabla tabla : tabarr){
-			String nomcam = tabla.getNomcam();
-			String tipo = tabla.getTipo();
+    		<input type="hidden" name="oculto" value="<%= request.getAttribute("ntabla") %>">
 			
-			switch (tipo) {
-			
-			case "INT":%>
-			<div class="form-group">
-				<label class="control-label col-sm-2"> <%=nomcam%>:</label>
-				<div class="col-sm-10">
-  					<input type="text" class="form-control" name="<%=nomcam%>">
-				</div>
-				</div>
-			<%break;
-			
-			case "String":%>
-				<div class="form-group">
-    				<label class="control-label col-sm-2"> <%=nomcam%>:</label>
-    				<div class="col-sm-10">
-      					<input type="text" class="form-control" name="<%=nomcam%>">
-    				</div>
-  				</div>
-			<%break;
+			<%for(Tabla tabla : tabarr){
+				String nomcam = tabla.getNomcam();
+				String tipo = tabla.getTipo();
 				
-			case "bool":
-				if(nomcam.equals("Estado")){ %>
-					<div class="form-group">
-					   <label class="control-label col-sm-2">Estado:</label>
-					      <div class="checkbox col-md-10">
-					        <select name="Estado">
-								<option value="TRUE">Activo</option>
-					  			<option value="FALSE">Inactivo</option>
-					  		</select>
-					    </div>
-					  </div>
-					
-			<%	}break;
-				
-			case "lisobj": %>
-					<div class="form-group">
-						<div class="dropdown col-md-10 col-sm-offset-2">
-							<%= SelecObj.impsel(nomcam) %>
+				switch (tipo) {
+					case "int":%>
+						<div class="form-group">
+							<label class="control-label col-sm-2"> <%=nomcam%>:</label>
+							<div class="col-sm-10">
+  								<input type="text" class="form-control" name="<%=nomcam%>">
+							</div>
 						</div>
-					</div>
-			<%break;
+					<%break;
 			
-			default:
-				break;
+					case "string":%>
+						<div class="form-group">
+    						<label class="control-label col-sm-2"> <%=nomcam%>:</label>
+    						<div class="col-sm-10">
+      							<input type="text" class="form-control" name="<%=nomcam%>">
+    						</div>
+  						</div>
+					<%break;
+				
+					case "bool":
+						if(nomcam.equals("Estado")){ %>
+							<div class="form-group">
+					   			<label class="control-label col-sm-2">Estado:</label>
+					      		<div class="checkbox col-md-10">
+					        		<select name="Estado">
+										<option value="TRUE">Activo</option>
+					  					<option value="FALSE">Inactivo</option>
+					  				</select>
+					    		</div>
+					  		</div>
+						<%}
+					break;
+				
+					case "lisobj": %>
+						<div class="form-group">
+							<div class="dropdown col-md-10 col-sm-offset-2">
+								<%= SelecObj.impsel(nomcam) %>
+							</div>
+						</div>
+					<%break;
+					
+					case "date":%>
+						<div class="form-group">
+							<label class="control-label col-sm-2"> <%=nomcam%>:</label>
+							<div class="col-sm-10">
+								
+							</div>
+						</div>
+					<%break;
 			
-			}
-		} %>
+					case "datetime":%>
+						<div class="form-group">
+							<label class="control-label col-sm-2"> <%=nomcam%>:</label>
+							<div class="col-sm-10">
+							
+							</div>
+						</div>
+					<%break;
+					
+					default:
+					break;
+				}
+			} %>
     
-  <div class="form-group">
-    <div class="col-sm-offset-2 col-sm-10">
-      <button type="submit" class="btn btn-default">Agregar</button>
-    </div>
-  </div>
-</form> 
-
-</div>
+  			<div class="form-group">
+    			<div class="col-sm-offset-2 col-sm-10">
+     	 			<button type="submit" class="btn btn-default">Agregar</button>
+    			</div>
+  			</div>
+		</form> 
+	</div>
 </body>
 </html>
