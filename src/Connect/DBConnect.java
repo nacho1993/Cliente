@@ -30,6 +30,7 @@ public class DBConnect {
 		sentecia.execute(SQL);
 		sentecia.close();
 		}catch (SQLException e){
+			System.out.print("Error en Ejecutar");
 			e.printStackTrace();
 			return false;
 		}

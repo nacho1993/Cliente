@@ -30,7 +30,7 @@ public class SelecObj {
 								while (resultado.next()) {
 							slc= slc + 
 							"			<tr> "+
-							"				<td><input type=\"checkbox\" name=\"doctores\" value=\"" + resultado.getInt("numero") + "\"><span> " + resultado.getInt("numero") + "</span></td> "+
+							"				<td><input type=\"checkbox\" name=\"lista\" value=\"" + resultado.getInt("numero") + "\"><span> " + resultado.getInt("numero") + "</span></td> "+
 							"			</tr> ";
 								}
 							} catch (SQLException e) {

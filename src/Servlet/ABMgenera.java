@@ -30,8 +30,7 @@ public class ABMgenera extends HttpServlet {
    
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		 
-		String tabnom = request.getParameter("tabla");
-			
+		String tabnom = request.getParameter("tabla"); 
 			DBConnect bd = new DBConnect();
 			
 			String con = "SELECT * FROM campos where tabla=\"" + tabnom + "\"" ;
@@ -50,7 +49,7 @@ public class ABMgenera extends HttpServlet {
 				}
 				
 			
-			request.setAttribute("tabarr", tabarr);
+			request.getSession().setAttribute("tabarr", tabarr);
 			request.setAttribute("ntabla", tabnom);
 			request.getRequestDispatcher("/WEB-INF/ABMGenerico.jsp").forward(request, response);
 			

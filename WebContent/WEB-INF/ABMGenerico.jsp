@@ -23,9 +23,15 @@
 <%= Navbar.impnbar(request)%>
 
 <form class="form-horizontal" action="AMBgenerico" method="post">
+
+<%if (request.getAttribute("respuesta") != null) { %>
+	
+	</br> <%= request.getAttribute("respuesta")%>
+<%}%>     
+            
   <input type="hidden" name="modo" value="alta">
   
-  <%  	ArrayList<Tabla> tabarr = (ArrayList<Tabla>) request.getAttribute("tabarr");%>
+  <%  	ArrayList<Tabla> tabarr = (ArrayList<Tabla>) request.getSession().getAttribute("tabarr");%>
   	
     	<input type="hidden" name="oculto" value="<%= request.getAttribute("ntabla") %>">
 	<%		for(Tabla tabla : tabarr){
