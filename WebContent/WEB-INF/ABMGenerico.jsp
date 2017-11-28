@@ -1,3 +1,4 @@
+<%@page import="javax.swing.text.StyledEditorKit.ForegroundAction"%>
 <%@page import="ABM.ABM"%>
 <%@page import="java.util.ArrayList"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
@@ -41,6 +42,7 @@
 				String nomcam = tabla.getNomcam();
 				String tipo = tabla.getTipo();
 				
+				
 				switch (tipo) {
 					case "int":%>
 						<div class="form-group">
@@ -73,6 +75,15 @@
 					  		</div>
 						<%}
 					break;
+					
+					case "select":%>
+					<div class="form-group">
+						<label class="control-label col-sm-2"> <%=nomcam%>:</label>
+						<div class="col-sm-10">
+ 							<%= Listobj.lisselect(nomcam)%> 				
+						</div>
+					</div>
+				<%break;
 				
 					case "lisobj": %>
 						<div class="form-group">
@@ -99,6 +110,8 @@
 							</div>
 						</div>
 					<%break;
+					
+				
 					
 					default:
 					break;

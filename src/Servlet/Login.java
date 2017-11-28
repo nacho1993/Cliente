@@ -44,7 +44,7 @@ public class Login extends HttpServlet {
 
 		String user = request.getParameter("usr");
 		String pass = request.getParameter("pwd");
-		
+				
 		DBConnect db = new DBConnect();
 	
 		String con = "SELECT * FROM Usuario WHERE Usuario=\"" + user +"\"";
@@ -58,6 +58,7 @@ public class Login extends HttpServlet {
 				if(pass.equals(resultado.getString("Password"))) {
 					request.getSession().setAttribute("user", user);
 					request.getSession().setAttribute("pass", pass);
+					request.getSession().setAttribute("idusu", resultado.getInt("id"));
 
 					request.getRequestDispatcher("/menu.jsp").forward(request, response);
 				} else {

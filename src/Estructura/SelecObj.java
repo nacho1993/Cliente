@@ -1,27 +1,30 @@
 package Estructura;
 import Connect.DBConnect;
 import login.Usuario;
+import Objetos.Listaselect;
+import Objetos.Tabla;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 import javax.servlet.http.HttpServletRequest;
 public class SelecObj {
 		
-	public static String impsel(String nomcap) {
+	public static String impsel(String nomcam) {
 		DBConnect db = new DBConnect();
-		ResultSet resultado = db.consulta("select * from "+ nomcap);
+		ResultSet resultado = db.consulta("select * from "+ nomcam);
 		if(resultado == null)
 			return "\n";
 				String slc;
 				slc= "<button class=\"btn btn-primary dropdown-toggle\" id=\"menu1\"" +
 				"		type=\"button\" data-toggle=\"dropdown\"> "+
-						nomcap + " <span class=\"caret\"></span> "+
+						nomcam + " <span class=\"caret\"></span> "+
 				"	</button> "+
 				"	<ul class=\"dropdown-menu\" role=\"menu\" aria-labelledby=\"menu1\" "+
-				"		id=\"myT"+ nomcap +"\"> "+
+				"		id=\"myT"+ nomcam +"\"> "+
 				"		<li role=\"presentation\"><input class=\"form-control\" "+
-				"			id=\"myI"+ nomcap +"\" type=\"text\" placeholder=\"Search..\"></li> "+
+				"			id=\"myI"+ nomcam +"\" type=\"text\" placeholder=\"Search..\"></li> "+
 				"		<li role=\"presentation\"><a role=\"menuitem\" tabindex=\"-1\"> "+
 							"	<table id=\"myTable\"> "+
 							"		<tbody> ";
@@ -41,9 +44,9 @@ public class SelecObj {
 				"	</ul> " +
 				" <script> "+
 				"			$(document).ready(function() { "+
-				"					$(\"#myI"+ nomcap +"\").on(\"keyup\",function() { "+
+				"					$(\"#myI"+ nomcam +"\").on(\"keyup\",function() { "+
 				"							var value = $(this).val().toLowerCase(); "+
-				"							$(\"#myT"+ nomcap +" tr\").filter(function() { "+
+				"							$(\"#myT"+ nomcam +" tr\").filter(function() { "+
 				"								$(this).toggle( "+
 				"								$(this).text().toLowerCase().indexOf(value) > -1) "+
 				"																}); "+
@@ -51,11 +54,9 @@ public class SelecObj {
 				"										}); "+
 				" </script> ";
 						
-				return slc;
-				
-				
-				
-						
-					
+				return slc;	
       }
+	
+	
+	
 	}
