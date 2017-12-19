@@ -14,11 +14,13 @@ import login.Formulario;
 
 public class Navbar {
 	public static String impnbar(HttpServletRequest request) {
+		
+	
 		ArrayList<Formulario> arrformularios = new ArrayList<Formulario>();
 		String user= (String) request.getSession().getAttribute("user");
 		int idusu = (int) request.getSession().getAttribute("idusu");
 		DBConnect db = new DBConnect();
-		ResultSet rusugrupo = db.consulta("select * from usuariogrupo where usuario=\""+ idusu +"\"");
+		ResultSet rusugrupo = db.consulta("select * from grupousuario where usuario=\""+ idusu +"\"");
 			try {
 				while (rusugrupo.next()) {
 					int idgrupo = rusugrupo.getInt("grupo"); 
@@ -38,8 +40,11 @@ public class Navbar {
 				e.printStackTrace();
 			}
 			
-			
+				int vgestionar=0;
+				int vsistema=0;
 				String nbar;
+				String gestionar="";
+				String sistema="";
 				nbar="<nav class=\"navbar navbar-inverse\">" +
 						"<div class=\"colformo3\">"    +
 						"<div class=\"container-fluid\" id=\"cssmenu\">"    +
@@ -54,19 +59,24 @@ public class Navbar {
 					case "doctor":
 					case"paciente":
 					case "consultorio":
-						nbar=nbar +	"<li class=\"has-sub\"> " +
+						if(vgestionar==0){
+						gestionar=gestionar +	"<li class=\"has-sub\"> " +
 										" <a tabindex=\"-1\" href=\"#\">GESTIONAR</a> "+
-										"<ul>" +
-											"<li class=\"active has-sub\"><a href=\"ABMgenera?tabla=doctor\">DOCTORES</a> " + 
-//												"<ul>" +
-//													"<li><a href=\"#\">Page 1-1-1</a></li> " +
-//												"</ul>"+
-											"</li>" +
-											"<li><a href=\"ABMgenera?tabla=paciente\">PACIENTES</a></li> " +
-											"<li><a href=\"ABMgenera?tabla=consultorio\">CONSULTORIOS</a></li> " +
-										"</ul>" +
-									"</li>"; 
-					break;					
+										"<ul>";
+						vgestionar=1;
+						}
+						if(form.equals("doctor")) {
+							gestionar=gestionar +"<li class=\"active has-sub\"><a href=\"ABMgenera?tabla=doctor\">DOCTORES</a> </li>" ;
+						}else {
+							if(form.equals("paciente")) {
+								gestionar=gestionar +"<li><a href=\"ABMgenera?tabla=paciente\">PACIENTES</a></li> ";
+							}else {
+								gestionar=gestionar +"<li><a href=\"ABMgenera?tabla=consultorio\">CONSULTORIOS</a></li> ";
+							}
+						}
+						
+					break;	
+					
 					case "alquiler":		
 							nbar=nbar +"<li><a href=\"Consulta\">ALQUILER</a></li>" ;
 					break;		
@@ -74,20 +84,23 @@ public class Navbar {
 					case "usuario":	
 					case "grupo":
 					case "formulario":
-							nbar=nbar +"<li class=\"has-sub\">" +
+						if(vsistema==0){
+							sistema=sistema +"<li class=\"has-sub\">" +
 										"<a tabindex=\"-1\" href=\"#\">SISTEMA</a>" +
 										"<ul>";
+							vsistema=1;
+						}
 										if(form.equals("usuario")) {
-											nbar=nbar +"<li><a href=\"ABMgenera?tabla=usuario\">USUARIOS</a> </li>" ;
+											sistema=sistema +"<li><a href=\"ABMgenera?tabla=usuario\">USUARIOS</a> </li>" ;
 										}else {
 											if(form.equals("grupo")) {
-											nbar=nbar +"<li><a href=\"ABMgenera?tabla=grupo\">GRUPOS</a></li> " ;
+												sistema=sistema +"<li><a href=\"ABMgenera?tabla=grupo\">GRUPOS</a></li> " ;
 											}else {
-											nbar=nbar +"<li><a href=\"ABMgenera?tabla=formulario\">FORMULARIOS</a></li> " ;
+												sistema=sistema +"<li><a href=\"ABMgenera?tabla=formulario\">FORMULARIOS</a></li> " ;
 											}
 										}
-							nbar=nbar +	"</ul>" +
-									 "</li>" ;
+					break;
+										
 					case "turno":				 
 							nbar=nbar +	"<li><a href=\"ABMgenera?tabla=turno\">TURNOS</a></li>";	
 					break;				
@@ -105,8 +118,18 @@ public class Navbar {
 					break;
 					}
 				}
-									
-					nbar=nbar +	"</ul>"+
+				if(vgestionar==1) {
+					gestionar=gestionar +"</ul>" +
+							"</li>";
+				}
+				if(vsistema==1) {
+					sistema=sistema	+"</ul>" +
+							 "</li>" ;
+				}
+								
+				
+				
+					nbar=nbar + gestionar+ sistema +	"</ul>"+
 								"<ul class=\"nav navbar-nav navbar-right cerrar\">"+
 									"<li><a href=\"Cerrar\"><span class=\"glyphicon glyphicon-log-out\"></span> Cerrar sesión</a></li>"+
 								"</ul>"     +	
@@ -116,7 +139,7 @@ public class Navbar {
 						"</div>"        +
 						"</div>"        +
 					"</nav>";	
-				
+		
 			
 				return nbar;
 	}

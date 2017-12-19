@@ -2,17 +2,19 @@ package Objetos;
 
 import java.sql.Date;
 
-public class Pasiente extends Persona {
+import com.sun.org.apache.xpath.internal.operations.Bool;
+
+public class Paciente extends Persona {
 	private int legajo;
 	private String fecnac;
 	private String obrasocial;
 	
-	public Pasiente() {
+	public Paciente() {
 		
 	}
 	
-	public Pasiente(int dni, String nombre, String apellido, String domicilio, int legajo, String fecnac, String obrasocial	){
-		super(dni, nombre, apellido, domicilio);
+	public Paciente(int id, int dni, String nombre, String apellido, String domicilio, int legajo, String fecnac, String obrasocial, Boolean estado){
+		super(id, dni, nombre, apellido, domicilio, estado);
 		this.legajo= legajo;
 		this.fecnac= fecnac;
 		this.obrasocial= obrasocial;

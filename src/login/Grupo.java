@@ -6,31 +6,20 @@ public class Grupo {
 	private int id;
 	private String descripcion;
 	private boolean estado;
-	private ArrayList<Usuario> usuarios;
-	private ArrayList<Permiso> permisos;
+
 
 	
 	public Grupo() {
 		
 	}
 	
-	public Grupo(int id, String decripcion, Boolean estado) {
-		ArrayList<Usuario> usuarios= new ArrayList<Usuario>();
-		ArrayList<Permiso> permisos= new ArrayList<Permiso>();
+	public Grupo(int id, String descripcion, Boolean estado) {
 		this.id= id;
 		this.descripcion= descripcion;
 		this.estado= estado;
-		this.usuarios= usuarios;
-		this.permisos= permisos;
 	}
 
-	public ArrayList<Permiso> getPermisos() {
-		return permisos;
-	}
 
-	public void setPermisos(ArrayList<Permiso> permisos) {
-		this.permisos = permisos;
-	}
 
 	public int getId() {
 		return id;
@@ -56,12 +45,6 @@ public class Grupo {
 		this.estado = estado;
 	}
 	
-	public ArrayList<Usuario> getUsuarios() {
-		return usuarios;
-	}
 
-	public void setUsuarios(ArrayList<Usuario> usuarios) {
-		this.usuarios = usuarios;
-	}
 
 }

@@ -51,7 +51,8 @@ public class ABMgenera extends HttpServlet {
 				
 			
 			request.getSession().setAttribute("tabarr", tabarr);
-			request.setAttribute("ntabla", tabnom);
+			request.getSession().setAttribute("nombreABM", tabnom);
+//			request.setAttribute("ntabla", tabnom);
 			request.getRequestDispatcher("/WEB-INF/ABMGenerico.jsp").forward(request, response);
 			
 			

@@ -26,13 +26,13 @@ public class SelecObj {
 				"		<li role=\"presentation\"><input class=\"form-control\" "+
 				"			id=\"myI"+ nomcam +"\" type=\"text\" placeholder=\"Search..\"></li> "+
 				"		<li role=\"presentation\"><a role=\"menuitem\" tabindex=\"-1\"> "+
-							"	<table id=\"myTable\"> "+
+							"	<table id=\"myT"+ nomcam +"\"> "+
 							"		<tbody> ";
 							try {
 								while (resultado.next()) {
 							slc= slc + 
 							"			<tr> "+
-							"				<td><input type=\"checkbox\" name=\"lista\" value=\"" + resultado.getInt("numero") + "\"><span> " + resultado.getInt("numero") + "</span></td> "+
+							"				<td><input type=\"checkbox\" name=\"lista\" value=\"" + resultado.getInt("id") + "\"><span> " + resultado.getInt("id") + "</span></td> "+
 							"			</tr> ";
 								}
 							} catch (SQLException e) {

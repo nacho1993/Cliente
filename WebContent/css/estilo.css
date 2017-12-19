@@ -151,3 +151,10 @@ body{
 .cerrar{
 	font-size: 11px;
 }
+.centrar{
+	text-align: center;
+}
+
+.transparencia{
+	background-color: rgba(116, 159, 166, 0.4);
+}

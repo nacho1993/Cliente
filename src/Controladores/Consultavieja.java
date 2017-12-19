@@ -16,11 +16,11 @@ import login.Usuario;
 
 
 @WebServlet("/Consulta")
-public class Consulta extends HttpServlet {
+public class Consultavieja extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
 
-    public Consulta() {
+    public Consultavieja() {
         super();
        
     }

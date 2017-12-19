@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import org.omg.CORBA.PUBLIC_MEMBER;
 
 public class Usuario {
+	int id;
 	private String usuario;
 	private String password;
 	private String nombre;
@@ -17,15 +18,15 @@ public class Usuario {
 		
 	}
 	
-	public Usuario(String usuario, String password, String nombre, String apellido, String email, Boolean estado) {
-		ArrayList<Grupo> grupos= new ArrayList<Grupo>();
+	public Usuario(int id, String usuario, String password, String nombre, String apellido, String email, Boolean estado) {
+		this.id=id;
 		this.usuario= usuario;
 		this.password= password;
 		this.nombre= nombre;
 		this.apellido= apellido;
 		this.email= email;
 		this.estado= estado;
-		this.grupos= grupos;
+
 	}
 
 	public String getUsuario() {
@@ -82,6 +83,14 @@ public class Usuario {
 
 	public void setGrupos(ArrayList<Grupo> grupos) {
 		this.grupos = grupos;
+	}
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
 	}
 	
 

@@ -1,31 +1,28 @@
 package Objetos;
 
 public class Turno {
-	private int numero;
+	private int id;
 	private String fecha;
-	public Pasiente pasiente;
-	public Doctor doctor;
+	int doctor;
+	int paciente;
+	int consultorio;
+
 	
 	
 	public Turno() {
 		
 	}
 
-	public Turno(int numero, String fecha, Pasiente pasiente, Doctor doctor) {
-		this.numero= numero;
+	public Turno(int id, String fecha, int doctor, int paciente, int consultorio) {
+		this.id= id;
 		this.fecha= fecha;
-		this.pasiente= pasiente;
+		this.paciente= paciente;
 		this.doctor= doctor;
+		this.consultorio= consultorio;
 		
 	}
 
-	public int getNumero() {
-		return numero;
-	}
 
-	public void setNumero(int numero) {
-		this.numero = numero;
-	}
 
 	public String getFecha() {
 		return fecha;
@@ -35,19 +32,37 @@ public class Turno {
 		this.fecha = fecha;
 	}
 
-	public Pasiente getPasiente() {
-		return pasiente;
+	public int getId() {
+		return id;
 	}
 
-	public void setPasiente(Pasiente pasiente) {
-		this.pasiente = pasiente;
+	public void setId(int id) {
+		this.id = id;
 	}
 
-	public Doctor getDoctor() {
+	public int getDoctor() {
 		return doctor;
 	}
 
-	public void setDoctor(Doctor doctor) {
+	public void setDoctor(int doctor) {
 		this.doctor = doctor;
 	}
+
+	public int getPaciente() {
+		return paciente;
+	}
+
+	public void setPaciente(int paciente) {
+		this.paciente = paciente;
+	}
+
+	public int getConsultorio() {
+		return consultorio;
+	}
+
+	public void setConsultorio(int consultorio) {
+		this.consultorio = consultorio;
+	}
+
+	
 }
